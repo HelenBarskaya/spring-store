@@ -1,0 +1,47 @@
+.d-block {
+    height: 500px;
+    object-fit: cover;
+}
+
+.page-header {
+    margin-top: 30px;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.card-title {
+    height: 58px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.page-header {
+    padding-bottom: 20px;
+}
+
+.basketContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.price, .buttonPrice {
+    margin: 10px;
+}
+
+.img-fluid {
+    height: 500px;
+    object-fit: contain;
+}
+
+footer {
+    margin-top: 50px;
+}
+
+h3 {
+    color: #696969;
+}
