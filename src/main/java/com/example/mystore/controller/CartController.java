@@ -39,10 +39,6 @@ public class CartController {
         return "cart";
     }
 
-    @RequestMapping(value = "/about")
-    public String about(Model model) {
-        return "about";
-    }
 
     @PostMapping(value = "cart/add")
     public void addProduct(@RequestParam(value = "id") int id) {

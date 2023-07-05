@@ -82,16 +82,15 @@
 <div class="container">
     <h2 class="page-header">Корзина</h2>
     <div class="table-responsive">
-        <table class="table">
+        <table class="table" id="myTable">
             <thead>
             <tr>
                 <th scope="col">Название</th>
                 <th scope="col">Цена</th>
-                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="prod : ${listProducts}">
+            <tr th:each="prod : ${listProducts}" th:id= "${prod.id}">
                 <td th:text="${prod.name}"></td>
                 <td th:text="${prod.price}"></td>
                 <td>
@@ -99,28 +98,23 @@
                             th:onclick="'javascript:deleteToCart('+${prod.id}+')'">Удалить
                     </button>
                 </td>
-                <script>
-                    function deleteToCart(id) {
-                        var url = "/cart/delete?id=" + id;
-                        $.ajax({
-                            type: 'POST',
-                            url: url,
-                            success:
-                                [
-                                    function () {
-                                        alert("Товар удален из корзины!")
-                                    }
-                                ]
-                        })
-                    }
-                </script>
             </tr>
             </tbody>
         </table>
-        <button type="submit" class="btn btn-secondary" onclick="makeOrder()">Сделать заказ</button>
+        <button type="submit" class="btn btn-secondary" th:onclick="'javascript:makeOrder()'">Сделать заказ</button>
         <script>
+            function deleteToCart(id) {
+                let d = document.getElementById(id);
+                d.remove();
+                let url = "/cart/delete?id=" + id;
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                });
+            }
+
             function makeOrder() {
-                alert("Спасибо за ваш заказ!")
+                alert("Спасибо за заказ!");
             }
         </script>
     </div>

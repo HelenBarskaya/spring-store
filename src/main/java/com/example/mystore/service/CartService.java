@@ -24,10 +24,12 @@ public class CartService {
         else return new Cart(user);
     }
 
+
     public void deleteCartById(int id) throws Exception {
         cartRepository.delete(cartRepository.findById(id)
                 .orElseThrow(() -> exceptionProvider(id)));
     }
+
 
     public void saveCart(Cart cart) {
         cartRepository.save(cart);
